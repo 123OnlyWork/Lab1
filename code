@@ -1,0 +1,27 @@
+/**
+ * @customfunction
+ */
+function AutoOffer(param, base, count) {
+  for (let i = 0; i < base.length; i++) {
+    base[i][8] = 1;
+    if (param[0][3] != "" && param[0][3] != base[i][5]) {
+      base[i][8] = 0;
+      continue;
+    }
+        if (param[0][4] != "" && param[0][4] != base[i][6]) {
+      base[i][8] = 0;
+      continue;
+    }
+        if (param[0][5] != "" && param[0][5] != base[i][7]) {
+      base[i][8] = 0;
+      continue;
+    }
+    for (let j = 0; j < 3; j++) {
+      base[i][8] *= Math.exp(-Math.pow((param[0][j] - base[i][j+2]) * param[1][j] / param[0][j], 2));
+    }
+  }
+  base.sort((a, b) => b[8] - a[8]);
+  let output = [];
+  for (let i = 0; i < count; i++) output[i] = base[i];
+  return output;
+}
