@@ -25,3 +25,5 @@ function AutoOffer(param, base, count) {
   for (let i = 0; i < count; i++) output[i] = base[i];
   return output;
 }
+
+https://docs.google.com/spreadsheets/d/1TvcEQBlGhYbMXFHAUJJlUmIDJv7aXnbkPNUFTHMZ2NA/edit#gid=0
